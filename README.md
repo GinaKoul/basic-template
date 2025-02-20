@@ -1,4 +1,4 @@
-# Todo List
+# Basic Template
 
 > ## Table of Contents
 - [Project Information](#project-information)
@@ -7,51 +7,14 @@
     - [Development Instructions](#development-instructions)
     - [Deployment Instructions](#deployment-instructions)
 
-Welcome to the Todo List Project!\
+Welcome to the BASIC_TEMPLATE!\
 It's built using Webpack to manage assets and streamline the development process.\
-It uses the localStorage and sessionStorage in order to save useful data.
 
-***Link to Project:*** https://ginakoul.github.io/todo-list/
+***Link to Project:*** PROJECT_LINK
 
-The Todo List contains the following functionalities:
+The BASIC_TEMPLATE contains the following functionalities:
 
-- **View all Projects**
-
-- **Add Project**
-
-- **Remove Project**
-
-- **Edit Project**
-
-- **View Project with tasks:**
-
-- **Add Task**
-
-- **Remove Task**
-
-- **Edit Task**
-
-- **Change Task Status**
-
-- **Change Check List Item Status**
-
-Each project contains the following:
-
-- **Title**
-
-Each task contains the following:
-
-- **Title**
-
-- **Description**
-
-- **Due Date**
-
-- **Priority**
-
-- **Notes**
-
-- **Check List**
+- **FUNCTIONALITY**
 
 > ## Project information
 
@@ -81,7 +44,7 @@ git clone <repository-url>
 2. Navigate to the project folder:
 
 ```bash
-cd todo-list
+cd <repo-name>
 ```
 
 3. Install dependencies:
@@ -190,4 +153,4 @@ git status
 npm run deploy
 ```
 
-This will push the compiled and minified assets to the [gh-pages](https://github.com/GinaKoul/todo-list/tree/gh-pages) branch.
+This will push the compiled and minified assets to the [gh-pages](https://github.com/GinaKoul/REPO_NAME/tree/gh-pages) branch.

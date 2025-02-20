@@ -1,14 +1,5 @@
 import "../css/styles.css";
 import { PubSub } from "./pubsub.js";
-import { Storage } from "./storage.js";
-import { RecentProject } from "./recent-project.js";
-import { CurrentEvent } from "./current-event.js";
-import { AddTask } from "./add-task.js";
-import { AddProject } from "./add-project.js";
-import { Projects } from "./projects.js";
-import { Project } from "./project.js";
-import { EditTask } from "./edit-task.js";
-import { EditProject } from "./edit-project.js";
 import { documentMock } from "./document-mock.js";
 
 (function () {
@@ -28,7 +19,8 @@ import { documentMock } from "./document-mock.js";
   }
 
   function handleNavigation(event) {
-    PubSub.trigger(event.target.getAttribute("data-id"));
+    // Do something
+    scrollToTop();
   }
 
   function initNavigation() {
@@ -38,82 +30,20 @@ import { documentMock } from "./document-mock.js";
     });
   }
 
-  function updateStorageProjects() {
-    Storage.updateProjects();
-  }
 
-  function updateStorageRecent() {
-    Storage.updateRecentProject();
-  }
-
-  function updateCurrentEvent() {
-    Storage.updateCurrentEvent();
-  }
-
-  function addProjectPage() {
-    AddProject.load();
-    scrollToTop();
-  }
-
-  function allProjectsPage() {
-    Projects.load();
-    scrollToTop();
-  }
-
-  function projectPage() {
-    Project.load();
-    scrollToTop();
-  }
-
-  function addTaskPage() {
-    AddTask.load();
-    scrollToTop();
-  }
-
-  function editTaskPage() {
-    EditTask.load();
-    scrollToTop();
-  }
-
-  function editProjectPage() {
-    EditProject.load();
-    scrollToTop();
-  }
-
-  PubSub.on("UpdateProjects", updateStorageProjects);
-  PubSub.on("UpdateRecentProject", updateStorageRecent);
-  PubSub.on("UpdateCurrentEvent", updateCurrentEvent);
-  PubSub.on("AllProjects", allProjectsPage);
-  PubSub.on("OpenProject", projectPage);
-  PubSub.on("AddProject", addProjectPage);
-  PubSub.on("EditProject", editProjectPage);
-  PubSub.on("AddTask", addTaskPage);
-  PubSub.on("EditTask", editTaskPage);
-
-  function initTodo() {
+  function init() {
     initNavigation();
 
-    Storage.setProjects();
-    Storage.setRecentProject();
-    Storage.setCurrentEvent();
-
-    const currentEvent = CurrentEvent.get();
-    if (currentEvent) {
-      PubSub.trigger(currentEvent);
-    } else if (RecentProject.get()) {
-      projectPage();
-    } else {
-      allProjectsPage();
-    }
+    // Main application logic
   }
 
   window.addEventListener("storage", () => {
-    initTodo();
+    init();
   });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initTodo);
   } else {
-    initTodo();
+    init();
   }
 })(document || documentMock);
