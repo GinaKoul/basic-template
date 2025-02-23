@@ -1,5 +1,6 @@
 import "../css/styles.css";
-import { PubSub } from "./pubsub.js";
+// eslint-disable-next-line capitalized-comments
+// import { PubSub } from "./pubsub.js";
 import { documentMock } from "./document-mock.js";
 
 (function () {
@@ -18,7 +19,7 @@ import { documentMock } from "./document-mock.js";
     });
   }
 
-  function handleNavigation(event) {
+  function handleNavigation() {
     // Do something
     scrollToTop();
   }
@@ -29,7 +30,6 @@ import { documentMock } from "./document-mock.js";
       navButton.addEventListener("click", handleNavigation);
     });
   }
-
 
   function init() {
     initNavigation();
@@ -42,7 +42,7 @@ import { documentMock } from "./document-mock.js";
   });
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initTodo);
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
